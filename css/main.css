@@ -20,21 +20,34 @@ body {
     content: "";
     display: table; }
 
-header {
-  display: none; }
-  header .title {
-    text-transform: lowercase;
-    font-size: 8rem;
-    margin: 0;
-    margin-top: 4rem; }
-  header h3 {
-    font-size: 1rem;
-    margin: 0;
-    margin-bottom: 2rem; }
+input {
+  background-color: #FBFFFE;
+  border: 1px solid #342E3D;
+  outline: none;
+  font-family: 'Trocchi', serif; }
+
+button {
+  border-radius: 2rem;
+  border: none;
+  background-color: #99E1D9;
+  color: #342E3D;
+  font-family: 'Trocchi', serif;
+  font-size: 1rem; }
+
+header .title {
+  text-transform: lowercase;
+  font-size: 8rem;
+  margin: 0;
+  margin-top: 4rem; }
+header h3 {
+  font-size: 1rem;
+  margin: 0;
+  margin-bottom: 2rem; }
 
 .head-min {
+  display: none;
   width: 100%;
-  height: 72px;
+  height: 4.5rem;
   background-color: #FBFFFE; }
   .head-min .logo {
     position: absolute;
@@ -57,35 +70,39 @@ header {
       margin-right: auto;
       font-size: 2rem;
       text-transform: lowercase; }
+  .head-min .search-bar {
+    display: block;
+    float: right;
+    margin-top: .75rem;
+    margin-right: 4rem;
+    line-height: 3rem; }
+    .head-min .search-bar input {
+      border: none;
+      height: 3rem;
+      width: 12rem;
+      font-size: 1.5rem;
+      vertical-align: middle; }
+    .head-min .search-bar button {
+      height: 2rem;
+      width: 6rem;
+      vertical-align: middle; }
 
-.search {
-  display: none; }
-  .search .search-bar input {
-    background-color: #FBFFFE;
-    border: 1px solid #342E3D;
-    border-radius: 1rem;
-    display: block;
-    height: 3rem;
-    width: 40rem;
-    margin: 0 auto;
-    outline: none;
-    font-size: 2rem;
-    font-family: 'Trocchi', serif;
-    text-align: center; }
-  .search .search-bar button {
-    display: block;
-    height: 2.5rem;
-    width: 10rem;
-    border-radius: 2rem;
-    margin: 1.25rem auto;
-    border: none;
-    background-color: #99E1D9;
-    color: #342E3D;
-    font-family: 'Trocchi', serif;
-    font-size: 1rem; }
+.search .search-bar input {
+  border-radius: 1rem;
+  display: block;
+  height: 3rem;
+  width: 40rem;
+  margin: 0 auto;
+  font-size: 2rem;
+  text-align: center; }
+.search .search-bar button {
+  display: block;
+  height: 2.5rem;
+  width: 10rem;
+  margin: 1.25rem auto; }
 
 .results .feedback-box {
-  margin-top: 3rem;
+  margin-top: 4rem;
   display: inline-block;
   border-radius: 2rem;
   font-size: 1rem;
