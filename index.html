@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="search">
 <head>
     <meta charset="UTF-8">
     <title>Flick. No Frills Flickr Search</title>
@@ -7,40 +7,38 @@
     <link href="https://fonts.googleapis.com/css?family=Trocchi" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 </head>
-<body>
-    <header>
+<body ng-controller="MainCtrl as vm">
+    <header ng-hide="vm.searched">
         <h1 class="title">
             Flick.
         </h1>
         <h3>A no frills Flickr search tool</h3>
     </header>
 
-    <section class="head-min">
+    <section class="head-min" ng-hide="!vm.searched">
         <div class="logo">
             <h1 class="title">
                 Flick.
             </h1>
         </div>
 
-        <form name="searchBarMin" class="search-bar">
-            <input type="text" name="search" placeholder="Search Again">
+        <form name="vm.searchBarMin" class="search-bar" ng-submit="vm.submit()">
+            <input type="text" name="search" ng-model="vm.userQuery" placeholder="Search Again">
             <button type="submit">Go</button>
         </form>
-
-
     </section>
 
-    <section class="search">
-        <form name="searchBar" class="search-bar">
-            <input type="text" name="search" placeholder="Search...">
+    <section class="search" ng-hide="vm.searched">
+        <form name="vm.searchBar" class="search-bar" ng-submit="vm.submit()">
+            <input type="text" name="search" placeholder="Search..." ng-model="vm.userQuery">
             <button type="submit">Go</button>
         </form>
     </section>
 
     <section class="results">
         <div class="feedback-box">
-            <h3 class="feedback-text">Searching for "Cats"</h3>
-            <!-- <h3 class="feedback-text">Displaying 20 results for "Cats"</h3> -->
+            <h3 class="feedback-text">Searching for "{{ vm.userQuery }}"</h3>
+            <!-- <h3 class="feedback-text">Displaying 20 results for "{{ vm.userQuery }}"</h3> -->
         </div>
 
         <div class="images">
