@@ -38,10 +38,10 @@
     <section class="results">
         <div class="feedback-box">
             <h3 class="feedback-text">Searching for "{{ vm.userQuery }}"</h3>
-            <!-- <h3 class="feedback-text">Displaying 20 results for "{{ vm.userQuery }}"</h3> -->
+            <h3 class="feedback-text">Displaying 20 results for "{{ vm.userQuery }}"</h3>
         </div>
 
-        <div class="images">
+        <div class="images" ng-hide="!vm.searched">
             <ul class="search-results">
                 <li><img src="http://placehold.it/300x300"></li>
                 <li><img src="http://placehold.it/300x300"></li>
@@ -49,7 +49,7 @@
             </ul>
         </div>
 
-        <div class="no-results">
+        <div class="no-results" ng-hide="!vm.error">
             <h2 class="error-message">No results, try making changes to your Search</h2>
         </div>
     </section>

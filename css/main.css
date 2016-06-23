@@ -100,15 +100,13 @@ header h3 {
   .results .feedback-box .feedback-text {
     margin: 0;
     padding: .75rem 5rem; }
-.results .images {
-  display: none; }
-  .results .images .search-results {
-    list-style-type: none;
-    padding: 0; }
-    .results .images .search-results li {
-      display: inline-block;
-      width: 300px;
-      height: 300px; }
+.results .images .search-results {
+  list-style-type: none;
+  padding: 0; }
+  .results .images .search-results li {
+    display: inline-block;
+    width: 300px;
+    height: 300px; }
 .results .no-results {
   margin-top: 4rem; }
   .results .no-results .error-message {
@@ -116,6 +114,7 @@ header h3 {
     font-size: 1.25rem; }
 
 footer {
+  display: none;
   position: absolute;
   width: 100%;
   bottom: 0;
