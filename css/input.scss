@@ -159,8 +159,11 @@ header {
     }
 }
 
-
-
-.search-bar {
-
+footer {
+    background-color: $surf;
+    margin-top: 4rem;
+    h3 {
+        margin-bottom: 0;
+        padding: 1rem;
+    }
 }
