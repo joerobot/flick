@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flick. No Frills Flickr Search</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Trocchi" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="title">
+            Flick.
+        </h1>
+        <h3>A no frills Flickr search tool</h3>
+    </header>
+
+    <section class="head-min">
+        <div class="logo">
+            <h1 class="title">
+                Flick.
+            </h1>
+        </div>
+
+        <form name="searchBarMin" class="search-bar">
+            <input type="text" name="search" placeholder="Search Again">
+            <button type="submit">Go</button>
+        </form>
+
+
+    </section>
+
+    <section class="search">
+        <form name="searchBar" class="search-bar">
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit">Go</button>
+        </form>
+    </section>
+
+    <section class="results">
+        <div class="feedback-box">
+            <h3 class="feedback-text">Searching for "Cats"</h3>
+            <!-- <h3 class="feedback-text">Displaying 20 results for "Cats"</h3> -->
+        </div>
+
+        <div class="images">
+            <ul class="search-results">
+                <li><img src="http://placehold.it/300x300"></li>
+                <li><img src="http://placehold.it/300x300"></li>
+                <li><img src="http://placehold.it/300x300"></li>
+            </ul>
+        </div>
+
+        <div class="no-results">
+            <h2 class="error-message">No results, try making changes to your Search</h2>
+        </div>
+    </section>
+
+    <script src="//code.angularjs.org/1.5.7/angular.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
