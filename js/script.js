@@ -9,8 +9,10 @@ angular.module('search', [])
 
 
 
+
         vm.submit = function(){
             vm.searched = true;
+            vm.photos = [];
             search_tag = vm.userQuery;
             var params = {
                 method: 'flickr.photos.search',
@@ -25,8 +27,16 @@ angular.module('search', [])
                 params: params
             })
             .then(function(data, status, headers, config){
-                console.log(data.data.photos.photo);
+                data.data.photos.photo.forEach(function(val){
+                    vm.photos.push('https://farm' + val.farm + '.staticflickr.com/' + val.server + '/' + val.id + '_' + val.secret + '.jpg')
+                });
+
+                vm.resultsLength = data.data.photos.photo.length;
+
             });
+
+            vm.lastQuery = vm.userQuery;
+            vm.userQuery = '';
 
         };
     });
