@@ -37,15 +37,13 @@
 
     <section class="results">
         <div class="feedback-box">
-            <h3 class="feedback-text">Searching for "{{ vm.userQuery }}"</h3>
-            <h3 class="feedback-text">Displaying 20 results for "{{ vm.userQuery }}"</h3>
+            <h3 ng-if="!vm.searched && vm.userQuery" class="feedback-text">Searching for "{{ vm.userQuery }}"</h3>
+            <h3 ng-if="vm.searched" class="feedback-text">Displaying {{ vm.resultsLength }} results for "{{ vm.lastQuery }}"</h3>
         </div>
 
         <div class="images" ng-hide="!vm.searched">
             <ul class="search-results">
-                <li><img src="http://placehold.it/300x300"></li>
-                <li><img src="http://placehold.it/300x300"></li>
-                <li><img src="http://placehold.it/300x300"></li>
+                <li ng-repeat="photo in vm.photos"><img src="{{ photo }}"></li>
             </ul>
         </div>
 
