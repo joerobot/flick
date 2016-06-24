@@ -110,6 +110,8 @@ header h3 {
     height: 300px;
     margin: 1rem;
     overflow: hidden; }
+    .results .images .search-results li img {
+      min-height: 300px; }
 .results .no-results {
   margin-top: 4rem; }
   .results .no-results .error-message {
