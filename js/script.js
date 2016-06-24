@@ -22,7 +22,6 @@ angular.module('search', [])
           data.data.photos.photo.forEach(function(val) {
             vm.photos.push('https://farm' + val.farm + '.staticflickr.com/' + val.server + '/' + val.id + '_' + val.secret + '.jpg')
           });
-          console.log(data);
           vm.resultsLength = data.data.photos.photo.length;
           if (vm.resultsLength === 0) {
             vm.error = true;
