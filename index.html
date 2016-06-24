@@ -8,28 +8,28 @@
     <link href="css/main.css" rel="stylesheet">
 </head>
 <body ng-controller="MainCtrl as vm">
-    <header ng-hide="vm.searched">
+    <header ng-hide="vm.results">
         <h1 class="title">
             Flick.
         </h1>
         <h3>A no frills Flickr search tool</h3>
     </header>
 
-    <section class="head-min" ng-hide="!vm.searched">
-        <div class="logo">
+    <section class="head-min" ng-hide="!vm.results">
+        <div class="logo" ng-click="vm.reset()">
             <h1 class="title">
                 Flick.
             </h1>
         </div>
 
-        <form name="vm.searchBarMin" class="search-bar" ng-submit="vm.submit()">
+        <form name="vm.searchBarMin" class="search-bar" ng-submit="vm.submitSub()">
             <input type="text" name="search" ng-model="vm.userQuery" placeholder="Search Again">
             <button type="submit">Go</button>
         </form>
     </section>
 
-    <section class="search" ng-hide="vm.searched">
-        <form name="vm.searchBar" class="search-bar" ng-submit="vm.submit()">
+    <section class="search" ng-hide="vm.results">
+        <form name="vm.searchBar" class="search-bar" ng-submit="vm.submitMain()">
             <input type="text" name="search" placeholder="Search..." ng-model="vm.userQuery">
             <button type="submit">Go</button>
         </form>
@@ -37,11 +37,11 @@
 
     <section class="results">
         <div class="feedback-box">
-            <h3 ng-if="!vm.searched && vm.userQuery" class="feedback-text">Searching for "{{ vm.userQuery }}"</h3>
-            <h3 ng-if="vm.searched" class="feedback-text">Displaying {{ vm.resultsLength }} results for "{{ vm.lastQuery }}"</h3>
+            <h3 ng-if="vm.searching" class="feedback-text">Searching for "{{ vm.lastQuery }}"</h3>
+            <h3 ng-if="vm.searched && !vm.searching" class="feedback-text">Displaying {{ vm.resultsLength }} results for "{{ vm.lastQuery }}"</h3>
         </div>
 
-        <div class="images" ng-hide="!vm.searched">
+        <div class="images" ng-hide="!vm.results">
             <ul class="search-results">
                 <li ng-repeat="photo in vm.photos"><img src="{{ photo }}"></li>
             </ul>
