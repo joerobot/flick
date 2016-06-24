@@ -6,6 +6,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Trocchi" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+
+    <script src="//code.angularjs.org/1.5.7/angular.min.js"></script>
 </head>
 <body ng-controller="MainCtrl as vm">
     <header ng-hide="vm.results">
@@ -15,7 +17,7 @@
         <h3>A no frills Flickr search tool</h3>
     </header>
 
-    <section class="head-min" ng-hide="!vm.results">
+    <section class="head-min" ng-hide="!vm.results" ng-cloak>
         <div class="logo" ng-click="vm.reset()">
             <h1 class="title">
                 Flick.
@@ -37,17 +39,17 @@
 
     <section class="results">
         <div class="feedback-box">
-            <h3 ng-if="vm.searching" class="feedback-text">Searching for "{{ vm.lastQuery }}"</h3>
-            <h3 ng-if="vm.searched && !vm.searching" class="feedback-text">Displaying {{ vm.resultsLength }} results for "{{ vm.lastQuery }}"</h3>
+            <h3 ng-cloak ng-if="vm.searching" class="feedback-text">Searching for "{{ vm.lastQuery }}"</h3>
+            <h3 ng-cloak ng-if="vm.searched && !vm.searching" class="feedback-text">Displaying {{ vm.resultsLength }} results for "{{ vm.lastQuery }}"</h3>
         </div>
 
-        <div class="images" ng-hide="!vm.results">
+        <div class="images" ng-hide="!vm.results" ng-cloak>
             <ul class="search-results">
-                <li ng-repeat="photo in vm.photos"><img src="{{ photo }}"></li>
+                <li ng-repeat="photo in vm.photos"><img ng-src="{{ photo }}"></li>
             </ul>
         </div>
 
-        <div class="no-results" ng-hide="!vm.error">
+        <div class="no-results" ng-hide="!vm.error" ng-cloak>
             <h2 ng-if="vm.resultsError" class="error-message">No results, try making changes to your Search</h2>
             <h2 ng-if="vm.inputError" class="error-message">Enter a search term</h2>
         </div>
@@ -57,7 +59,6 @@
         <h3>App by Joe Reed</h3>
     </footer>
 
-    <script src="//code.angularjs.org/1.5.7/angular.min.js"></script>
     <script src="js/script.js"></script>
 
 </body>

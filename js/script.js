@@ -11,29 +11,29 @@ angular.module('search', [])
 
     // Request for photos. Construct img URLs and push to array
     var getPhotos = function(params) {
+        // var defer = $q.defer();
+        vm.searching = true;
       $http({
           method: 'GET',
           url: url,
           params: params
         })
         .then(function(data) {
-          vm.searching = true;
           data.data.photos.photo.forEach(function(val) {
             vm.photos.push('https://farm' + val.farm + '.staticflickr.com/' + val.server + '/' + val.id + '_' + val.secret + '.jpg')
           });
-          return data;
-        })
-        .then(function(data) {
-          // Log length of array/number of results
+          console.log(data);
           vm.resultsLength = data.data.photos.photo.length;
           if (vm.resultsLength === 0) {
             vm.error = true;
             vm.resultsError = true;
           };
+
+          // Reveal results
           vm.searching = false;
-          vm.searchIncomplete = false;
           vm.results = true;
         });
+
 
     };
 
@@ -47,6 +47,7 @@ angular.module('search', [])
         method: 'flickr.photos.search',
         api_key: api_key,
         tags: search_tag,
+        sort: 'relevance',
         format: 'json',
         nojsoncallback: 1,
       };
