@@ -23,14 +23,14 @@
         </div>
 
         <form name="vm.searchBarMin" class="search-bar" ng-submit="vm.submitSub()">
-            <input type="text" name="search" ng-model="vm.userQuery" placeholder="Search Again">
+            <input type="text" name="search" ng-model="vm.userQuery" placeholder="Search Again" required>
             <button type="submit">Go</button>
         </form>
     </section>
 
     <section class="search" ng-hide="vm.results">
-        <form name="vm.searchBar" class="search-bar" ng-submit="vm.submitMain()">
-            <input type="text" name="search" placeholder="Search..." ng-model="vm.userQuery">
+        <form name="vm.searchBar" class="search-bar" ng-submit="vm.submitMain()" novalidate>
+            <input type="text" name="search" placeholder="Search..." ng-model="vm.userQuery" required>
             <button type="submit">Go</button>
         </form>
     </section>
@@ -48,7 +48,8 @@
         </div>
 
         <div class="no-results" ng-hide="!vm.error">
-            <h2 class="error-message">No results, try making changes to your Search</h2>
+            <h2 ng-if="vm.resultsError" class="error-message">No results, try making changes to your Search</h2>
+            <h2 ng-if="vm.inputError" class="error-message">Enter a search term</h2>
         </div>
     </section>
 

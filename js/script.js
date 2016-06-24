@@ -28,6 +28,7 @@ angular.module('search', [])
                 vm.resultsLength = data.data.photos.photo.length;
                 if(vm.resultsLength === 0){
                     vm.error = true;
+                    vm.resultsError = true;
                 };
                 vm.searching = false;
                 vm.searchIncomplete = false;
@@ -62,13 +63,22 @@ angular.module('search', [])
             vm.searched = false;
             vm.searching = false;
             vm.error = false;
+            vm.resultsError = false;
+            vm.inputError = false;
             vm.userQuery = '';
         }
 
         vm.submitMain = function(){
+            if(vm.searchBar.$error.required){
+                vm.error = true;
+                vm.inputError = true;
+                return;
+            };
+
             // Search initiated
             vm.searched = true;
             vm.searching = true;
+
 
             submit();
         }
