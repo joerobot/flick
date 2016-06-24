@@ -7,8 +7,7 @@ angular.module('search', [])
         var url = 'https://api.flickr.com/services/rest';
         var search_tag = '';
 
-        vm.searched = false;
-        vm.searching = false;
+
 
         // Request for photos. Construct img URLs and push to array
         var getPhotos = function(params){
@@ -27,6 +26,9 @@ angular.module('search', [])
             .then(function(data){
                 // Log length of array/number of results
                 vm.resultsLength = data.data.photos.photo.length;
+                if(vm.resultsLength === 0){
+                    vm.error = true;
+                };
                 vm.searching = false;
                 vm.searchIncomplete = false;
                 vm.results = true;
@@ -59,6 +61,7 @@ angular.module('search', [])
             vm.results = false;
             vm.searched = false;
             vm.searching = false;
+            vm.error = false;
             vm.userQuery = '';
         }
 
@@ -74,5 +77,8 @@ angular.module('search', [])
             vm.searching = true;
             submit();
         }
+
+        // Start fresh
+        vm.reset();
 
     });
