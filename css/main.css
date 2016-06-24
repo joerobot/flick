@@ -49,7 +49,8 @@ header h3 {
     width: 200px;
     border-radius: 200px;
     background-color: #FBFFFE;
-    box-shadow: 0 2px 4px #E8E9F9; }
+    box-shadow: 0 2px 4px #E8E9F9;
+    cursor: pointer; }
     .head-min .logo .title {
       position: absolute;
       bottom: 0;
