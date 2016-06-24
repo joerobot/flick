@@ -113,7 +113,7 @@ header h3 {
     .results .images .search-results li img {
       min-height: 300px; }
 .results .no-results {
-  margin-top: 4rem; }
+  margin-top: 2rem; }
   .results .no-results .error-message {
     color: #786D86;
     font-size: 1.25rem; }
@@ -127,5 +127,34 @@ footer {
   footer h3 {
     margin: 0;
     padding: 1rem; }
+
+header {
+  transition: .2s ease-in-out all;
+  opacity: 1; }
+
+header.ng-hide {
+  opacity: 0; }
+
+.head-min .logo, .head-min {
+  transition: .4s ease-in-out all;
+  opacity: 1; }
+
+.head-min.ng-hide .logo, .head-min.ng-hide {
+  opacity: 0;
+  height: 0; }
+
+.photos.ng-enter {
+  -webkit-transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
+  opacity: 0; }
+
+.photos.ng-enter-stagger {
+  -webkit-transition-delay: .1s;
+  transition-delay: .1s;
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s; }
+
+.photos.ng-enter.ng-enter-active {
+  opacity: 1; }
 
 /*# sourceMappingURL=main.css.map */

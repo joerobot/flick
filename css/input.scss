@@ -156,7 +156,7 @@ header {
     }
 
     .no-results {
-        margin-top: 4rem;
+        margin-top: 2rem;
         .error-message {
             color: $midPurple;
             font-size: 1.25rem;
@@ -174,4 +174,43 @@ footer {
         margin: 0;
         padding: 1rem;
     }
+}
+
+
+// Animations
+
+header {
+    transition: .2s ease-in-out all;
+    opacity: 1;
+}
+header.ng-hide {
+    opacity: 0;
+}
+
+.head-min .logo, .head-min {
+    transition: .4s ease-in-out all;
+    opacity: 1;
+}
+.head-min.ng-hide .logo, .head-min.ng-hide {
+    opacity: 0;
+    height: 0;
+}
+
+
+
+.photos.ng-enter {
+-webkit-transition: all ease-in-out 0.4s;
+transition: all ease-in-out 0.4s ;
+opacity:0;
+}
+
+.photos.ng-enter-stagger{
+-webkit-transition-delay:.1s;
+transition-delay:.1s;
+-webkit-transition-duration:0s;
+transition-duration:0s;
+}
+
+.photos.ng-enter.ng-enter-active{
+opacity:1;
 }

@@ -1,4 +1,4 @@
-angular.module('search', [])
+angular.module('search', ['ngAnimate'])
   .controller('MainCtrl', function($http, $q) {
     // Controller As
     var vm = this;
@@ -74,6 +74,8 @@ angular.module('search', [])
         vm.inputError = true;
         return;
       };
+
+      vm.inputError = false;
 
       // Search initiated
       vm.searched = true;
