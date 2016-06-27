@@ -8,7 +8,6 @@ angular.module('search', ['ngAnimate'])
     var search_tag = '';
 
 
-
     // Request for photos. Construct img URLs and push to array
     var getPhotos = function(params) {
         // var defer = $q.defer();
@@ -76,6 +75,7 @@ angular.module('search', ['ngAnimate'])
       };
 
       vm.inputError = false;
+      vm.resultsError = false;
 
       // Search initiated
       vm.searched = true;
@@ -85,7 +85,11 @@ angular.module('search', ['ngAnimate'])
     }
 
     vm.submitSub = function() {
+    // Search initiated
       vm.searching = true;
+    // Clears any errors
+      vm.inputError = false;
+      vm.resultsError = false;
       submit();
     }
 
